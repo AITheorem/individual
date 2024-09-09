@@ -1,0 +1,41 @@
+[tool.ruff]
+# Skip rule E501, line length, since Black auto corrects line lengths
+# (Note that you do need to be careful about long comments which are not autocorrected)
+# Skip rule F722, syntax error in forward annotation
+# (This is a flake8 rule that interacts badly with jaxtyping to give spurious errors)
+ignore = ["F722", "E501", "E731"]
+
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tr"
+version = "0.0.1"
+description = "Research into IOI"
+readme = "README.md"
+# authors = [{ name = "", email = "" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["IOI"]
+# dependencies = [] To be updated with packages used
+requires-python = ">=3.10"
+
+[project.optional-dependencies]
+dev = ["black", "pytest"]
+# "bumpver", "pip-tools"
+
+# [project.urls]
+# homepage = "https://github.com/XAI-Units/xaiunits"
+
+[tool.coverage.run]
+source = ["src"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "if __name__ == .__main__.:",
+]
